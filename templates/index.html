@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cyber Password Strength Analyzer</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background:#f2f2f2;
+            text-align:center;
+            padding:40px;
+        }
+        .container{
+            background:white;
+            padding:30px;
+            border-radius:10px;
+            width:400px;
+            margin:auto;
+            box-shadow:0 0 10px rgba(0,0.2);
+        }
+        input{
+            width:90%;
+            padding:10px;
+            margin:10px;
+        }
+        button{
+            padding:10px 20px;
+            background:#007BFF;
+            color:white;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+        }
+        ul{
+            text-align:left;
+            display:inline-block;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>🔒 Cyber Password Strength Analyzer</h2>
+
+    <form method="POST">
+        <input type="password" name="password" placeholder="Enter Password" required>
+        <br>
+        <button type="submit">Analyze</button>
+    </form>
+
+    {% if strength %}
+        <h3>Password Strength: {{ strength }}</h3>
+
+        {% if suggestions %}
+        <h4>Suggestions:</h4>
+        <ul>
+            {% for item in suggestions %}
+            <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    {% endif %}
+
+</div>
+
+</body>
+</html>
